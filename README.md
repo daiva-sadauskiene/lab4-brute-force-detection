@@ -35,7 +35,7 @@ Geolocation analysis showed the IP originates from Russia (Selectel network).
 ![IP origin](defender-evidence-ip.png) 
 
 *IP confirmation in Sentinel*
-![IP-conf-Sentinel](kusto-query-ip)
+![kusto-query-ip](kusto-query-ip)
 
 
 ### 4. Defender for Endpoint Response:
