@@ -27,23 +27,28 @@ This lab documents a real brute-force login attempt detected on my Azure VM on J
 ![Kusto failed logins](kusto-query.png) 
 
 ### 3. IP Origin:
-IP 77.223.102.227 was identified inside Microsoft Defender as the source of repeated failed sign-in attempts.  
-Geolocation shows the IP is from Russia (Selectel network), and was flagged as suspicious.
+The IP address `77.223.102.227` was identified in Microsoft Defender for Endpoint by reviewing the alert and incident details.  
+It was confirmed via Microsoft Sentinel by querying failed login logs (Event ID 4625).  
+Geolocation analysis showed the IP originates from Russia (Selectel network).
 
 *IP `77.223.102.227` identified as coming from Russia*
 ![IP origin](defender-evidence-ip.png) 
 
 
 ### 4. Defender for Endpoint Response:
-- Navigated to alert
-- Added the IP as a custom network indicator and set to "Block"
-  
+- Opened the incident in Microsoft Defender security portal
+- From there, navigated to the related alert
+- Added the attacker IP as a custom network indicator and set it to "Block"
+
 *Indicator configured to block the IP, with description referencing brute-force attempts.*
 ![Indicator confirmation](indicator-creation.png)  
 
-### 5. Verification 
+### 5. Verification of IP Block
 
-*Query filtering logins by the malicious IP to verify failed attempts from external origin.*
+- After adding the IP as a custom network indicator in Microsoft Defender, I verified its effectiveness by running a Kusto query in Sentinel to search for any further failed login attempts from the same IP.
+- The query returned no results, confirming that the IP was successfully blocked.
+
+*Kusto query filtering failed login attempts by the malicious IP after indicator was set to block.*
 ![Kusto IP lookup](kusto-query-ip.png) 
 
 *Visual graph of the incident showing relationships between the attacker IP, user, and affected VM.*
