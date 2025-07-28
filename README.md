@@ -2,11 +2,14 @@
 
 This lab documents a real brute-force login attempt detected on my Azure VM on July 25, 2025. Using Microsoft Sentinel and Defender for Endpoint, I investigated the incident, identified the malicious IP address, and blocked it via custom indicator.
 
-##  Objective
+## 🎯 Objective
 The goal of this lab was to investigate a real brute-force login attempt targeting my Azure virtual machine and apply appropriate mitigation.
-This involved identifying the malicious IP address using Microsoft Defender and Sentinel, and blocking it using a custom network indicator
+This involved identifying the malicious IP address using Microsoft Defender and Sentinel, and blocking it using a custom network indicator.
 
-##  Steps Overview
+## 🖼️ Screenshots
+The following screenshots document the investigation process, including alert details, Kusto queries, IP analysis, indicator creation, and post-mitigation verification steps.
+
+## 🧩 Steps Overview
 
 ### 1. Detection and Alert:
 - Created a custom analytics rule in Sentinel to detect multiple failed login attempts.
@@ -62,13 +65,13 @@ Geolocation analysis showed the IP originates from Russia (Selectel network).
 *Visual graph of the incident showing relationships between the attacker IP, user, and affected VM.*
 ![Incident graph](defender-incidents-results.png)
 
-## Tools Used
+## 🔧 Tools Used
 - Microsoft Sentinel
 - Microsoft Defender for Endpoint
 - Log Analytics Workspace
 - Azure VM
 
-## Key Learning Outcomes
+## 🔒 Key Learning Outcomes
 - Investigated a real-world brute force attack using Microsoft Defender and Sentinel
 - Analyzed alert and incident details in Microsoft Defender security portal
 - Identified attacker IP and created a custom network indicator to block it
@@ -76,7 +79,7 @@ Geolocation analysis showed the IP originates from Russia (Selectel network).
 - Verified that the block was successful by confirming no further activity from the IP
 - Strengthened understanding of end-to-end incident response: detection → analysis → mitigation → validation
 
-## Lessons Learned
+## 🎯 Lessons Learned
 - Real Defender alerts can indicate brute-force attacks even without a real user on the machine
 - Alert data and Kusto logs can be used together to validate malicious behavior
 - Creating custom indicators in Defender is an effective way to mitigate threats
