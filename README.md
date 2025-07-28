@@ -27,9 +27,10 @@ This lab documents a real brute-force login attempt detected on my Azure VM on J
 ![Kusto failed logins](kusto-query.png) 
 
 ### 3. IP Origin:
-Checked IP using external tool → Located in Russia, Selectel network
+IP 77.223.102.227 was identified inside Microsoft Defender as the source of repeated failed sign-in attempts.  
+Geolocation shows the IP is from Russia (Selectel network), and was flagged as suspicious.
 
-*IP `77.223.102.227` identified as coming from Russia (Selectel network), flagged as suspicious.*
+*IP `77.223.102.227` identified as coming from Russia*
 ![IP origin](defender-evidence-ip.png) 
 
 
