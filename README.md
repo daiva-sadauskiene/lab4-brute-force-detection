@@ -3,7 +3,8 @@
 This lab documents a real brute-force login attempt detected on my Azure VM on July 25, 2025. Using Microsoft Sentinel and Defender for Endpoint, I investigated the incident, identified the malicious IP address, and blocked it via custom indicator.
 
 
-## Steps Overview
+## 🧩 Steps Overview
+
 ### 1. Detection and Alert:
 - Created a custom analytics rule in Sentinel to detect multiple failed login attempts.
 - Linked VM logs to Sentinel via Log Analytics Workspace.
