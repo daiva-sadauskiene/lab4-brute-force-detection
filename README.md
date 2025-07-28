@@ -1,6 +1,7 @@
 # Lab 4: Brute Force Attack Investigation & IP Block via Microsoft Defender
 
-This lab documents a real brute-force login attempt detected on my Azure VM on July 25, 2025. Using Microsoft Sentinel and Defender for Endpoint, I investigated the incident, identified the malicious IP address, and blocked it via custom indicator. This exercise helped reinforce incident response workflows: detection → investigation → mitigation.
+This lab documents a real brute-force login attempt detected on my Azure VM on July 25, 2025. Using Microsoft Sentinel and Defender for Endpoint, I investigated the incident, identified the malicious IP address, and blocked it via custom indicator.
+
 
 ## Steps Overview
 ### 1. Detection and Alert:
@@ -64,7 +65,9 @@ Geolocation analysis showed the IP originates from Russia (Selectel network).
 - Azure VM
 
 ## 🧠 Key Learning Outcomes
-- Hands-on detection of real-world brute force behavior.
-- Use of Sentinel analytics rules and incident investigation.
-- Better understanding of attacker patterns and log signals.
-  
+- Investigated a real-world brute force attack using Microsoft Defender and Sentinel
+- Analyzed alert and incident details in Microsoft Defender security portal
+- Identified attacker IP and created a custom network indicator to block it
+- Queried failed login events in Microsoft Sentinel using Kusto
+- Verified that the block was successful by confirming no further activity from the IP
+- Strengthened understanding of end-to-end incident response: detection → analysis → mitigation → validation
