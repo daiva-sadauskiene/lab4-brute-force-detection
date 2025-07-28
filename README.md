@@ -58,7 +58,8 @@ Geolocation analysis showed the IP originates from Russia (Selectel network).
 
 - After adding the IP as a custom network indicator in Microsoft Defender, I verified its effectiveness by running a Kusto query in Sentinel to search for any further failed login attempts from the same IP.
 - The query returned no results, confirming that the IP was successfully blocked.
-
+- No Event ID 4624 (successful login) was detected from the attacker’s IP (77.223.102.227), confirming the brute-force attempt failed.
+  
 *Kusto query filtering failed login attempts by the malicious IP after indicator was set to block.*
 ![Kusto IP lookup](defender-blocked-ip.png) 
 
