@@ -49,7 +49,7 @@ Geolocation analysis showed the IP originates from Russia (Selectel network).
 - The query returned no results, confirming that the IP was successfully blocked.
 
 *Kusto query filtering failed login attempts by the malicious IP after indicator was set to block.*
-![Kusto IP lookup](kusto-query-ip.png) 
+![Kusto IP lookup](defender-blocked-ip.png) 
 
 *Visual graph of the incident showing relationships between the attacker IP, user, and affected VM.*
 ![Incident graph](defender-incidents-results.png)
