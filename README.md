@@ -2,6 +2,9 @@
 
 This lab documents a real brute-force login attempt detected on my Azure VM on July 25, 2025. Using Microsoft Sentinel and Defender for Endpoint, I investigated the incident, identified the malicious IP address, and blocked it via custom indicator.
 
+## 🎯 Objective
+The goal of this lab was to investigate a real brute-force login attempt targeting my Azure virtual machine and apply appropriate mitigation.
+This involved identifying the malicious IP address using Microsoft Defender and Sentinel, and blocking it using a custom network indicator
 
 ## 🧩 Steps Overview
 
@@ -72,3 +75,9 @@ Geolocation analysis showed the IP originates from Russia (Selectel network).
 - Queried failed login events in Microsoft Sentinel using Kusto
 - Verified that the block was successful by confirming no further activity from the IP
 - Strengthened understanding of end-to-end incident response: detection → analysis → mitigation → validation
+
+🎯 Lessons Learned
+- Real Defender alerts can indicate brute-force attacks even without a real user on the machine
+- Alert data and Kusto logs can be used together to validate malicious behavior
+- Creating custom indicators in Defender is an effective way to mitigate threats
+- Always confirm mitigation worked by verifying absence of future attempts
