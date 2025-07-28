@@ -11,24 +11,46 @@ This lab documents a real brute-force login attempt detected on my Azure VM on J
 *This screenshot demonstrates alert notification received from Microsoft Defender for Endpoint indicating multiple failed sign-in attempts*
 ![Alert email](email-alert.png)
 
-### 2. Investigation in Sentinel:
+### 2. Investigation in Sentinel and Defender:
 - Investigated the incident: entity details, IPs, login attempts.
 - Queried SecurityEvent table for Event ID 4625 (failed login)
 - Found multiple failed login attempts from IP 77.223.102.227
 - Validated that the alert was triggered by a real attack.
-- Screenshot of Kusto query + results
+
+*Overview of active Defender alerts, showing the brute force alert and its severity.*
+![Alert table](alert-info-defender.png)
+
+*Timeline and process tree of login attempts tied to the "radio" user account.*
+![Alert process tree](alert-process-tree-defender.png) 
+
+*Query for Event ID 4625 showing failed login attempts with associated user accounts and timestamps.*
+![Kusto failed logins](kusto-query.png) 
 
 ### 3. IP Origin:
 Checked IP using external tool → Located in Russia, Selectel network
 
+*IP `77.223.102.227` identified as coming from Russia (Selectel network), flagged as suspicious.*
+![IP origin](defender-evidence-ip.png) 
+
+
 ### 4. Defender for Endpoint Response:
 - Navigated to alert
 - Added the IP as a custom network indicator and set to "Block"
-- Screenshot of the indicator creation
+  
+*Indicator configured to block the IP, with description referencing brute-force attempts.*
+![Indicator confirmation](indicator-creation.png)  
+
+### 5. Verification 
+
+*Query filtering logins by the malicious IP to verify failed attempts from external origin.*
+![Kusto IP lookup](kusto-query-ip.png) 
+
+*Visual graph of the incident showing relationships between the attacker IP, user, and affected VM.*
+![Incident graph](defender-incidents-results.png)
 
 ## 🔧 Tools Used
 - Microsoft Sentinel
-- Microsoft Defender for Cloud
+- Microsoft Defender for Endpoint
 - Log Analytics Workspace
 - Azure VM
 
