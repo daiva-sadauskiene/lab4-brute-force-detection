@@ -34,6 +34,9 @@ Geolocation analysis showed the IP originates from Russia (Selectel network).
 *IP `77.223.102.227` identified as coming from Russia*
 ![IP origin](defender-evidence-ip.png) 
 
+*IP confirmation in Sentinel*
+![IP-conf-Sentinel](kusto-query-ip)
+
 
 ### 4. Defender for Endpoint Response:
 - Opened the incident in Microsoft Defender security portal
